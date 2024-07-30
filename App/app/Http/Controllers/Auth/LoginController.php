@@ -36,6 +36,6 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
         $this->middleware('auth')->only('logout');
-        $this->middleware('throttle:2,1')->only('login');
+        $this->middleware('throttle:3,1')->only('login');
     }
 }

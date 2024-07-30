@@ -22,6 +22,7 @@ class User extends Authenticatable
         'password',
         'Persona_idPersona2',
         'SessionActive',
+        'Status'
     ];
 
     /**
@@ -46,5 +47,10 @@ class User extends Authenticatable
             'password' => 'hashed',
             'SessionActive' => 'boolean',
         ];
+    }
+
+    public function persona()
+    {
+        return $this->belongsTo(Persona::class, 'Persona_idPersona2', 'idPersona');
     }
 }

@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('Bienvenido') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,8 +13,18 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    <!-- Datos de Persona -->
+                    <p>Nombres: {{ $persona->Nombres }}</p>
+                    <p>Apellidos: {{ $persona->Apellidos }}</p>
+                    <p>Identificación: {{ $persona->Identificacion }}</p>
 
-                    {{ __('You are logged in!') }}
+                    @if ($ultimaSesion)
+                        <p>Última sesión activa</p>
+                        <p>Ultimo ingreso: {{ $ultimaSesion->FechaIngreso }}</p>
+                        <p>Ultimo cierre: {{ $ultimaSesion->FechaCierre }}</p>
+                    @else
+                        <p>No hay registros de sesión activa previa.</p>
+                    @endif
                 </div>
             </div>
         </div>
